@@ -1,0 +1,35 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+img{
+  width: 200x;
+  height: 200px;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+  background-color: skyblue;
+}
+
+.container_title{
+  display: flex;
+  flex-direction: column;
+}
+
+.container_forms{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: aqua;
+}
