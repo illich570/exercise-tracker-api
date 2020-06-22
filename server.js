@@ -19,6 +19,18 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err) => {
 
 Server.get('/',(req,res) =>{
   res.sendFile(__dirname + '/public/views/index.html');
+});
+
+Server.post('/api/exercise/new-user',(req,res) =>{
+  res.send(200)
+})
+
+Server.post('/api/exercise/add',(req,res) =>{
+  res.send(200)
+})
+
+Server.get('/api/exercise/log',(req,res) =>{
+  res.send(200)
 })
 
 Server.listen(process.env.PORT || 3000, function () {
