@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="/css/index.css">
   <script src="https://kit.fontawesome.com/35e9411073.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
+ 
+
 </head>
 
 <body>
@@ -25,42 +27,42 @@
 
     <div class="container_forms">
     <section>
-        <form>
+        <form name="user">
           <title>Form to register a user</title>
           <div>
             <label for="username">User</label>
             <input name="username" id="username" type="text" placeholder="Username" />
           </div>
           <div>
-            <button>Click me!</button>
+            <button type="button" onclick="postUser()">Click me!</button>
           </div>
         </form>
     </section>
 
     <section>
-      <form>
+      <form name="exercise" onsubmit="postExercise()">
         <title>Form for track exercise</title>
         <div>
-          <label for="userID">User ID<label>
-          <input type="text" id="userID" name="userID" placeholder="UserID" />
+          <label for="user_ID">User ID<label>
+          <input type="text" id="userID" name="user_ID" placeholder="UserID" />
         </div>
 
         <div>
-          <label for="">description</label>
-          <input type="text" name="" id="" placeholder="" />
+          <label for="descrip">description</label>
+          <input type="text" name="descrip" id="descrip" placeholder="description" />
         </div>
 
         <div>
-          <label for="">duration(mins)</label>
-          <input type="text" name="" id="" placeholder="" />
+          <label for="duration">duration(mins)</label>
+          <input type="text" name="duration" id="duration" placeholder="duration" />
         </div>
 
         <div>
-          <label for="">Optional Date</label>
-          <input type="text" name="" id="" placeholder="" />
+          <label for="date">Date</label>
+          <input type="text" name="date" id="date" placeholder="yyyy-mm-dd(optional)" />
         </div>
 
-        <button>Click me 2!</button>
+        <button type="submit">Click me 2!</button>
       </form>
     </section>
     </div>
@@ -84,5 +86,6 @@
         </a>
       </div>
     </footer>
+    <script src="/js/index.js"></script>
 </body>
 </html>
