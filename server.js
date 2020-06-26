@@ -14,10 +14,11 @@ Server.use(bodyParser.json());
 Server.use(bodyParser.urlencoded({extended: true}));
 
 const getLastUserId = async () => {
-  return await UserModel.find({}).sort({ _id: -1 }).limit(1).select('-_id');
+  const id = await UserModel.find({}).sort({ _id: -1 }).limit(1).select('_id');
+  return id[0]._id +1
  };
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err) => {
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   err
     ? console.log("Error on connection")
     : console.log("Connected Sucessfully");
@@ -27,12 +28,24 @@ Server.get('/',(req,res) =>{
   res.sendFile(__dirname + '/public/views/index.html');
 });
 
-Server.post('/api/exercise/new-user',(req,res) =>{
-  res.send(200)
+Server.post('/api/exercise/new-user', async (req,res) =>{
+  const id = await getLastUserId();
+  const User = new UserModel({_id: id, username: req.body.userValue});
+  const response = await User.save();
+  console.log(response);
+  res.sendStatus(200);
 })
 
-Server.post('/api/exercise/add',(req,res) =>{
-  res.send(200)
+Server.post('/api/exercise/add',async (req,res) =>{
+  const Exercise = new ExerciseModel({
+    userId: req.body.userId,
+    description: req.body.description,
+    duration: req.body.duration,
+    date: req.body.date
+  });
+  const response = await Exercise.save();
+  console.log(response);
+  res.sendStatus(200)
 })
 
 Server.get('/api/exercise/log',(req,res) =>{
