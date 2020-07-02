@@ -43,6 +43,11 @@ img{
   flex-direction: column;
 }
 
+.container_button{
+  display: flex;
+  justify-content: center;
+}
+
 .title_info{
   font-style: italic;
 }
@@ -57,6 +62,25 @@ img{
   display: flex;
   width: 100%;
   background-color: red;
+}
+
+
+.input{
+  border: 0;
+  padding: 0.3em;
+  border-radius: 5px;
+}
+
+.container_input{
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+}
+
+.button{
+  border: 0;
+  padding: 0.5em;
+  border-radius: 10px;
 }
 
 

@@ -18,6 +18,11 @@ const getLastUserId = async () => {
   return id[0]._id +1
  };
 
+const getExercisesFromUser = async (id) => {
+  const data = await ExerciseModel.find({}).populate(id);
+  return data;
+}
+
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   err
     ? console.log("Error on connection")
@@ -48,9 +53,18 @@ Server.post('/api/exercise/add',async (req,res) =>{
   res.sendStatus(200)
 })
 
-Server.get('/api/exercise/log',(req,res) =>{
-  res.send(200)
+Server.get('/api/exercise/log',async (req,res) =>{
+  const { userId } = req.query;
+  const log = await getExercisesFromUser(userId);
+  console.log(log);
+  res.json(log);
 })
+
+Server.get('/api/users',async (req,res) =>{
+  const data = await UserModel.find({});
+  res.json(data).status(200);
+})
+
 
 Server.listen(process.env.PORT || 3000, function () {
   console.log("Express listening on port: " + this.address().port);

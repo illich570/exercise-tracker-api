@@ -29,12 +29,12 @@
     <section>
         <form name="user">
           <title>Form to register a user</title>
-          <div>
+          <div class="container_input">
             <label for="username">User</label>
-            <input name="username" id="username" type="text" placeholder="Username" />
+            <input class="input" name="username" id="username" type="text" placeholder="Username" />
           </div>
-          <div>
-            <button type="button" onclick="postUser()">Click me!</button>
+          <div class="container_button">
+            <button class="button" type="button" onclick="postUser()">Click me!</button>
           </div>
         </form>
     </section>
@@ -42,27 +42,28 @@
     <section>
       <form name="exercise">
         <title>Form for track exercise</title>
-        <div>
-          <label for="user_ID">User ID<label>
-          <input type="text" id="userID" name="user_ID" placeholder="UserID" />
+        <div class="container_input">
+          <label for="user_ID">User ID</label>
+          <input class="input" type="text" id="userID" name="user_ID" placeholder="UserID" />
         </div>
 
-        <div>
+        <div class="container_input">
           <label for="descrip">description</label>
-          <input type="text" name="descrip" id="descrip" placeholder="description" />
+          <input class="input" type="text" name="descrip" id="descrip" placeholder="description" />
         </div>
 
-        <div>
+        <div class="container_input">
           <label for="duration">duration(mins)</label>
-          <input type="text" name="duration" id="duration" placeholder="duration" />
+          <input class="input" type="text" name="duration" id="duration" placeholder="duration" />
         </div>
 
-        <div>
+        <div class="container_input">
           <label for="date">Date</label>
-          <input type="text" name="date" id="date" placeholder="yyyy-mm-dd(optional)" />
+          <input class="input" type="datetime" name="date" id="date" placeholder="yyyy-mm-dd(optional)" />
         </div>
-
-        <button type="button" onclick="postExercise()">Click me 2!</button>
+        <div class="container_button">
+        <button class="button" type="button" onclick="postExercise()">Click me!</button>
+        </div>
       </form>
     </section>
     </div>
