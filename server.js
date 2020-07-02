@@ -78,11 +78,10 @@ Server.get('/api/exercise/log',async (req,res) =>{
 
   res.json({
     _id: userId,
-    username: await getUsernameById(id),
+    username: await getUsernameById(userId),
     count: log.length,
     log
   })
-  res.json(log);
 })
 
 Server.get('/api/users',async (req,res) =>{

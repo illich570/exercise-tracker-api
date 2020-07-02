@@ -1,2 +1,10 @@
-# basic-express-boilerplate
-Basic express boilerplate to use as a server for example projects.
+# exercise-tracker-api
+An API for get exercise data from a user.
+
+TODO:
+-Responsive Design
+-Finish styling
+
+Done:
+-API Logic
+-Forms functions to post data

@@ -77,6 +77,15 @@ img{
   background-color: red;
 }
 
+.container_instructions{
+  display: flex;
+  width: 100%;
+  background-color: green;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .button{
   border: 0;
   padding: 0.5em;
