@@ -23,6 +23,11 @@ const getExercisesFromUser = async (id) => {
   return data;
 }
 
+const getUsernameById = async (id) =>{
+  const user = await UserModel.findOne({_id : id}).select('username -_id');
+  return user.username;
+}
+
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   err
     ? console.log("Error on connection")
@@ -42,11 +47,12 @@ Server.post('/api/exercise/new-user', async (req,res) =>{
 })
 
 Server.post('/api/exercise/add',async (req,res) =>{
+  const date = req.body.date == '' ? new Date(): new Date(req.body.date);
   const Exercise = new ExerciseModel({
     userId: req.body.userId,
     description: req.body.description,
-    duration: req.body.duration,
-    date: req.body.date
+    duration: +req.body.duration,
+    date: date.toString()
   });
   const response = await Exercise.save();
   console.log(response);
@@ -54,9 +60,28 @@ Server.post('/api/exercise/add',async (req,res) =>{
 })
 
 Server.get('/api/exercise/log',async (req,res) =>{
-  const { userId } = req.query;
-  const log = await getExercisesFromUser(userId);
-  console.log(log);
+  const { userId, from, to, limit } = req.query;
+  let log = await getExercisesFromUser(userId);
+
+  if(from){
+    const fromDate = new Date(from);
+    log = log.filter(el => new Date(el.date) > fromDate);
+  }
+
+  if(to){
+    const toDate = new Date(to);
+    log = log.filter(el => new Date(el.date) < toDate);
+  }
+  if(limit){
+    log = log.slice(0,+limit);
+  }
+
+  res.json({
+    _id: userId,
+    username: await getUsernameById(id),
+    count: log.length,
+    log
+  })
   res.json(log);
 })
 
