@@ -1,3 +1,8 @@
+const modal = document.getElementById('modal');
+const buttonModal = document.getElementsByClassName('close')[0];
+const dataModal = document.getElementById('modal-data');
+
+
 
 const postUser =  async () => {
   const userValue = document.getElementById('username').value;
@@ -8,6 +13,16 @@ const postUser =  async () => {
   })
   const result = await response.json();
   console.log(result);
+
+  if(result.error){
+    dataModal.textContent = `Eror en el guardado de datos, conexión incorrecta o URL invalida, intente de nuevo`;
+  }else{
+    modal.classList.add('active');
+  
+   dataModal.textContent = `Guardado exitoso, el Id del usuario es: `;  
+  }
+
+
 }
 
 const postExercise = async () => {
@@ -28,4 +43,10 @@ const postExercise = async () => {
   });
   const result = await response.json();
   console.log(result);
+
+  if(result.error){
+    dataModal.textContent = `Eror en el guardado de datos, conexión incorrecta o URL invalida, intente de nuevo`;
+  }else{
+   dataModal.textContent = `Guardado exitoso,pruebe a consultar!`; 
+  }
 }

@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/css/index.css">
   <script src="https://kit.fontawesome.com/35e9411073.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
- 
+  <title>Exercise-API</title>
 
 </head>
 
@@ -21,14 +21,16 @@
     </header>
 
     <section class="container_info">
-      <p>Casos de uso: primero registrar un usuario</p>
-      <p>Despues con el ID del usuario, registras ejercicios mediante info</p>
+      <p>
+        API diseñada para guardar datos de un usuario
+        y crear un registro de sus ejercicios que realizara.
+      </p>
     </section>
 
     <div class="container_forms">
     <section>
         <form name="user">
-          <title>Form to register a user</title>
+          <h3 class="title_form">Form to register a user</h3>
           <div class="container_input">
             <label for="username">User</label>
             <input class="input" name="username" id="username" type="text" placeholder="Username" />
@@ -41,7 +43,7 @@
 
     <section>
       <form name="exercise">
-        <title>Form for track exercise</title>
+        <h3 class="title_form">Form for track exercise</h3>
         <div class="container_input">
           <label for="user_ID">User ID</label>
           <input class="input" type="text" id="userID" name="user_ID" placeholder="UserID" />
@@ -72,13 +74,20 @@
   <main>
     <div class="container_instructions">
       <p>
-        Ejemplo de consulta: http://localhost:8080/api/exercise/log?userId=1
+        <b> Ejemplo de consulta:</b> http://localhost:8080/api/exercise/log?userId=1
       </p>
-      <span>Parametros: { } = required, [ ] = optional</span>
-      <p> from, to = dates (yyyy-mm-dd); limit = number</p>
-      <p>/api/exercise/log?{userId}[&from][&to][&limit]</p>
+      <span><b>Parametros:</b> { } = required, [ ] = optional</span>
+      <p> <b> from, to</b> = dates (yyyy-mm-dd); <b>limit</b> = number</p>
+      <p>api/exercise/log?{userId}[&from][&to][&limit]</p>
     </div>
   </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <p id="modal-data">Some text in the Modal..</p>
+      <span>&times;</span>
+    </div>
+  </div>
 
 
       <footer class="footer">
