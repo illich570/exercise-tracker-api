@@ -28,43 +28,43 @@
     </section>
 
     <div class="container_forms">
-    <section>
+    <section class="form">
         <form name="user">
-          <h3 class="title_form">Form to register a user</h3>
+          <h3 class="title_form">Registrar usuario</h3>
           <div class="container_input">
-            <label for="username">User</label>
-            <input class="input" name="username" id="username" type="text" placeholder="Username" />
+            <label for="username">Username</label>
+            <input class="input" name="username" id="username" type="text" placeholder="Nombre de usuario" />
           </div>
           <div class="container_button">
-            <button class="button" type="button" onclick="postUser()">Click me!</button>
+            <button class="button" type="button" onclick="postUser()">Guardar</button>
           </div>
         </form>
     </section>
 
-    <section>
+    <section class="form">
       <form name="exercise">
-        <h3 class="title_form">Form for track exercise</h3>
+        <h3 class="title_form">Registrar ejercicio</h3>
         <div class="container_input">
-          <label for="user_ID">User ID</label>
+          <label for="user_ID">ID usuario</label>
           <input class="input" type="text" id="userID" name="user_ID" placeholder="UserID" />
         </div>
 
         <div class="container_input">
-          <label for="descrip">description</label>
-          <input class="input" type="text" name="descrip" id="descrip" placeholder="description" />
+          <label for="descrip">descripción</label>
+          <input class="input" type="text" name="descrip" id="descrip" placeholder="descripción" />
         </div>
 
         <div class="container_input">
-          <label for="duration">duration(mins)</label>
-          <input class="input" type="text" name="duration" id="duration" placeholder="duration" />
+          <label for="duration">duración(mins)</label>
+          <input class="input" type="text" name="duration" id="duration" placeholder="duración" />
         </div>
 
         <div class="container_input">
-          <label for="date">Date</label>
-          <input class="input" type="datetime" name="date" id="date" placeholder="yyyy-mm-dd(optional)" />
+          <label for="date">Fecha</label>
+          <input class="input" type="datetime" name="date" id="date" placeholder="yyyy-mm-dd(opcional)" />
         </div>
         <div class="container_button">
-        <button class="button" type="button" onclick="postExercise()">Click me!</button>
+        <button class="button" type="button" onclick="postExercise()">Guardar</button>
         </div>
       </form>
     </section>
@@ -76,9 +76,10 @@
       <p>
         <b> Ejemplo de consulta:</b> http://localhost:8080/api/exercise/log?userId=1
       </p>
-      <span><b>Parametros:</b> { } = required, [ ] = optional</span>
-      <p> <b> from, to</b> = dates (yyyy-mm-dd); <b>limit</b> = number</p>
       <p>api/exercise/log?{userId}[&from][&to][&limit]</p>
+      <span><b>Parametros:</b> { } = requerido, [ ] = opcional</span>
+      <p> <b> from, to</b> = dates (yyyy-mm-dd); <b>limit</b> = number</p>
+      
     </div>
   </main>
 
@@ -91,7 +92,7 @@
 
 
       <footer class="footer">
-      <span class="">Url-shortener made by @IllichR</span>
+      <span class="">API de ejercicios hecha por @IllichR</span>
       <div class="">
         <a href="https://www.freecodecamp.org/illich570" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-free-code-camp fa-2x"></i>
