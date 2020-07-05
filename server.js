@@ -43,7 +43,7 @@ Server.post('/api/exercise/new-user', async (req,res) =>{
   const User = new UserModel({_id: id, username: req.body.userValue});
   const response = await User.save();
   console.log(response);
-  res.sendStatus(200);
+  res.status(200).json(response);
 })
 
 Server.post('/api/exercise/add',async (req,res) =>{
@@ -56,7 +56,7 @@ Server.post('/api/exercise/add',async (req,res) =>{
   });
   const response = await Exercise.save();
   console.log(response);
-  res.sendStatus(200)
+  res.status(200).json(response);
 })
 
 Server.get('/api/exercise/log',async (req,res) =>{
@@ -84,7 +84,7 @@ Server.get('/api/exercise/log',async (req,res) =>{
   })
 })
 
-Server.get('/api/users',async (req,res) =>{
+Server.get('/api/exercise/users',async (req,res) =>{
   const data = await UserModel.find({});
   res.json(data).status(200);
 })
