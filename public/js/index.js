@@ -2,6 +2,8 @@ const modal = document.getElementById('modal');
 const buttonModal = document.getElementsByClassName('close')[0];
 const dataModal = document.getElementById('modal-data');
 const userInput = document.getElementById('username');
+buttonModal.onclick = () => modal.classList.remove('active')
+window.onclick = (event) => event.target == modal ? modal.classList.remove('active') : '';
 
 
 const postUser =  async () => {
@@ -20,7 +22,7 @@ const postUser =  async () => {
   }else{
     modal.classList.add('active');
   
-   dataModal.textContent = `Guardado exitoso, el Id del usuario es: `;  
+   dataModal.textContent = `Guardado exitoso, el Id del usuario es: ${response._id}`;  
   }
 
 

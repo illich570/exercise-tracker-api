@@ -42,8 +42,7 @@ Server.post('/api/exercise/new-user', async (req,res) =>{
   const id = await getLastUserId();
   const User = new UserModel({_id: id, username: req.body.userValue});
   const response = await User.save();
-  console.log(response);
-  res.status(200).json(response);
+  res.status(200).json({_id: response._id, username: response.username});
 })
 
 Server.post('/api/exercise/add',async (req,res) =>{
@@ -55,7 +54,13 @@ Server.post('/api/exercise/add',async (req,res) =>{
     date: date.toString()
   });
   const response = await Exercise.save();
-  console.log(response);
+  const redata = await UserModel.find({_id: req.body.userId}); 
+  const data = {
+    ...response,
+    description: req.body.description,
+    duration: +req.body.duration,
+    date: date.toString()
+  }
   res.status(200).json(response);
 })
 
