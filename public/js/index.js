@@ -1,11 +1,12 @@
 const modal = document.getElementById('modal');
 const buttonModal = document.getElementsByClassName('close')[0];
 const dataModal = document.getElementById('modal-data');
-
+const userInput = document.getElementById('username');
 
 
 const postUser =  async () => {
-  const userValue = document.getElementById('username').value;
+  const userValue = userInput.value;
+  userInput.value = '';
   const response = await fetch('/api/exercise/new-user',{
     method: 'POST',
     headers: {'Content-Type': 'application/json;charset=utf-8'},
